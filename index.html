@@ -4,236 +4,284 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SEO Meta Tags -->
-    <title>Robux Tool v1 - Automatize Transferências de Robux | Code Projects</title>
-    <meta name="description" content="Conheça o Robux Tool v1, um bot Discord da Code Projects para gerenciar Robux. Junte-se à Capital dos Robux ou encomende seu bot personalizado!">
-    <meta name="keywords" content="Robux Tool v1, bot Discord, Code Projects, Robux barato, Capital dos Robux, bots personalizados, APIs, sites">
+    <title>Robux Tool v1 - Bot Discord Avançado | Code Projects</title>
+    <meta name="description" content="Robux Tool v1: Automatize transferências de Robux no Discord com a Code Projects. Confira a Capital dos Robux e encomende seu bot!">
+    <meta name="keywords" content="Robux Tool v1, Discord bot, Code Projects, Robux barato, Capital dos Robux, bots personalizados">
     <meta name="author" content="Lucas Fortes - Code Projects">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Robux Tool v1 - Code Projects">
-    <meta property="og:description" content="Automatize suas transferências de Robux com o Robux Tool v1. Confira preços incríveis na Capital dos Robux e encomende bots com a Code Projects!">
+    <meta property="og:description" content="Gerencie Robux no Discord com o Robux Tool v1. Preços incríveis na Capital dos Robux e bots personalizados com a Code Projects!">
     <meta property="og:image" content="https://4kwallpapers.com/images/wallpapers/roblox-game-art-3840x2160-20147.jpg">
     <meta property="og:url" content="https://ads.redebots.shop">
     <meta property="og:type" content="website">
     <link rel="canonical" href="https://ads.redebots.shop">
 
-    <!-- Bootstrap 5 CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Tailwind CSS CDN via Cloudflare CDNJS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- FontAwesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- GSAP CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            background: url('https://images.alphacoders.com/135/1354746.png') no-repeat center center fixed;
+            background: url('https://imgur.com/TFSxz3M.png') no-repeat center center fixed;
             background-size: cover;
-            font-family: 'Poppins', sans-serif;
+            color: #e0e0e0;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.8;
+            padding: 50px;
             min-height: 100vh;
-            overflow-x: hidden;
         }
 
-        /* Ajustes para fundo claro e colorido */
-        h1, h2, h3 {
-            color: #fff;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        p, li {
-            color: #f0f0f0;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #252525, #303030);
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
         }
 
-        .card {
-            background: rgba(0, 0, 0, 0.85);
-            border: 2px solid #00ffcc;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
-        }
-
-        .btn-custom {
-            background-color: #00ffcc;
-            color: #000;
-            border: none;
-            padding: 10px 20px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .btn-custom:hover {
-            background-color: #ff00cc;
-            color: #fff;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 0, 204, 0.5);
+        .header h1 {
+            color: #ffffff;
+            font-size: 2.8em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #ffffff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background: #252525;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            background: #303030;
+        }
+
+        .card-icon {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            color: #888888;
+            font-size: 1.2em;
+        }
+
+        .card-number {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: #888888;
+            font-size: 1em;
             font-weight: bold;
-            margin-bottom: 30px;
+        }
+
+        .card-content {
+            margin-top: 35px;
+            font-size: 1em;
+        }
+
+        .card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: block;
+            border: 2px solid #888888;
+        }
+
+        .btn-custom {
+            background: #404040;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-custom:hover {
+            background: #505050;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .footer {
             text-align: center;
+            color: #888888;
+            font-size: 0.95em;
+            padding: 25px;
+            background: linear-gradient(135deg, #252525, #303030);
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
-        footer {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            text-align: center;
-        }
-
-        footer a {
-            color: #00ffcc;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: #ff00cc;
-        }
-
-        /* Responsividade */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
+            body {
+                padding: 25px;
+            }
+
+            .header h1 {
+                font-size: 2.2em;
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 2em;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
             }
 
             .card {
-                margin-bottom: 20px;
+                padding: 20px;
             }
 
             .btn-custom {
                 width: 100%;
             }
         }
-
-        @media (max-width: 576px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .card img {
-                width: 80px;
-                height: 80px;
-            }
-        }
     </style>
 </head>
 <body>
-    <header class="container text-center py-5">
-        <h1 class="display-4 fw-bold">Robux Tool v1</h1>
-        <p class="lead">Desenvolvido por <span class="fw-bold" style="color: #00ffcc;">Code Projects</span></p>
-    </header>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-robot"></i> Robux Tool v1 - Code Projects</h1>
+        </div>
 
-    <main class="container py-5">
         <!-- Seção Como Funciona -->
-        <section class="mb-5">
+        <section class="mb-12">
             <h2 class="section-title">Como o Robux Tool v1 Funciona</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card p-4 h-100">
-                        <i class="fas fa-robot fa-3x text-center text-cyan mb-3" style="color: #00ffcc;"></i>
-                        <h3 class="h5 fw-bold text-center">Automação Avançada</h3>
-                        <p class="text-center">Gerencie transferências de Robux com comandos simples no Discord, tudo automatizado.</p>
-                        <button class="btn btn-custom mt-3 d-block mx-auto"><i class="fas fa-info-circle me-2"></i> Saiba Mais</button>
+            <div class="content-grid">
+                <div class="card">
+                    <i class="fas fa-robot card-icon"></i>
+                    <span class="card-number">01</span>
+                    <div class="card-content">
+                        <h3 class="text-xl font-semibold mb-2">Automação no Discord</h3>
+                        <p>Gerencie transferências de Robux com slash commands diretamente no seu servidor Discord.</p>
+                        <button class="btn-custom mt-4"><i class="fas fa-info-circle"></i> Saiba Mais</button>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card p-4 h-100">
-                        <i class="fas fa-user-check fa-3x text-center text-cyan mb-3" style="color: #00ffcc;"></i>
-                        <h3 class="h5 fw-bold text-center">Integração Roblox</h3>
-                        <p class="text-center">Conectado à API do Roblox para verificar usuários e exibir avatars em tempo real.</p>
-                        <button class="btn btn-custom mt-3 d-block mx-auto"><i class="fas fa-link me-2"></i> Veja em Ação</button>
+                <div class="card">
+                    <i class="fas fa-user-check card-icon"></i>
+                    <span class="card-number">02</span>
+                    <div class="card-content">
+                        <h3 class="text-xl font-semibold mb-2">Integração Roblox</h3>
+                        <p>Conecte-se à API do Roblox para verificar usuários e exibir avatars em embeds.</p>
+                        <button class="btn-custom mt-4"><i class="fas fa-link"></i> Veja em Ação</button>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card p-4 h-100">
-                        <i class="fas fa-tachometer-alt fa-3x text-center text-cyan mb-3" style="color: #00ffcc;"></i>
-                        <h3 class="h5 fw-bold text-center">Dashboards Visuais</h3>
-                        <p class="text-center">Gere imagens dinâmicas com informações de fundos e entregas instantaneamente.</p>
-                        <button class="btn btn-custom mt-3 d-block mx-auto"><i class="fas fa-eye me-2"></i> Exemplos</button>
+                <div class="card">
+                    <i class="fas fa-tachometer-alt card-icon"></i>
+                    <span class="card-number">03</span>
+                    <div class="card-content">
+                        <h3 class="text-xl font-semibold mb-2">Embeds Dinâmicos</h3>
+                        <p>Gere dashboards visuais com informações de fundos e entregas no estilo Discord.</p>
+                        <button class="btn-custom mt-4"><i class="fas fa-eye"></i> Exemplos</button>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Seção Divulgação -->
-        <section class="mb-5">
-            <h2 class="section-title">Divulgação</h2>
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="card p-4 h-100 text-center">
-                        <img src="https://4kwallpapers.com/images/wallpapers/roblox-game-art-3840x2160-20147.jpg" alt="Capital dos Robux" class="rounded-circle mx-auto mb-3" style="width: 100px; height: 100px; border: 3px solid #00ffcc;">
-                        <h3 class="h5 fw-bold">Capital dos Robux</h3>
-                        <p>Compre Robux a preços incríveis:</p>
-                        <ul class="list-unstyled">
-                            <li><i class="fas fa-plus me-2" style="color: #00ffcc;"></i> 22,000 Robux por R$ 14.99</li>
-                            <li><i class="fas fa-plus me-2" style="color: #00ffcc;"></i> 50,000 Robux por R$ 24.99</li>
-                            <li><i class="fas fa-plus me-2" style="color: #00ffcc;"></i> Robux Infinito por R$ 49.99</li>
+        <section class="mb-12">
+            <h2 class="section-title">Junte-se ao Universo Discord</h2>
+            <div class="content-grid">
+                <div class="card">
+                    <i class="fas fa-shopping-cart card-icon"></i>
+                    <span class="card-number">01</span>
+                    <div class="card-content">
+                        <img src="https://media.discordapp.net/attachments/1348020005027184857/1352731233687441550/a_80b5d23f2769d22281121646c126ebbb.gif?ex=67df14a2&is=67ddc322&hm=65fd04d8d4182b84b8b50dde99cc99f4a74f2f97e2caf0633d297117d3d118a3&=" alt="Capital dos Robux">
+                        <h3 class="text-xl font-semibold mb-2">Capital dos Robux</h3>
+                        <p>Os melhores preços de Robux no Discord:</p>
+                        <ul class="list-disc pl-5 mt-2">
+                            <li>22,000 Robux por R$ 14.99</li>
+                            <li>50,000 Robux por R$ 24.99</li>
+                            <li>Robux Infinito por R$ 49.99</li>
                         </ul>
-                        <a href="https://discord.gg/pMANdMVakH" target="_blank" class="btn btn-custom mt-3"><i class="fab fa-discord me-2"></i> Entrar no Discord</a>
+                        <a href="https://discord.gg/pMANdMVakH" target="_blank" class="btn-custom mt-4"><i class="fab fa-discord"></i> Entrar no Server</a>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card p-4 h-100 text-center">
-                        <img src="https://imgur.com/luzpsj9.png" alt="Code Projects" class="rounded-circle mx-auto mb-3" style="width: 100px; height: 100px; border: 3px solid #00ffcc;">
-                        <h3 class="h5 fw-bold">Code Projects</h3>
-                        <p>Soluções digitais de ponta: bots Discord, sites, APIs e plataformas personalizadas.</p>
-                        <a href="https://discord.gg/codeprojects" target="_blank" class="btn btn-custom mt-3"><i class="fab fa-discord me-2"></i> Fale Conosco</a>
-                        <a href="https://github.com/LucasDesignerF" target="_blank" class="btn btn-custom mt-2"><i class="fab fa-github me-2"></i> GitHub do Dev</a>
+                <div class="card">
+                    <i class="fas fa-code card-icon"></i>
+                    <span class="card-number">02</span>
+                    <div class="card-content">
+                        <img src="https://imgur.com/luzpsj9.png" alt="Code Projects">
+                        <h3 class="text-xl font-semibold mb-2">Code Projects</h3>
+                        <p>Bots Discord, sites e APIs feitos sob medida para seu servidor.</p>
+                        <a href="https://discord.gg/codeprojects" target="_blank" class="btn-custom mt-4"><i class="fab fa-discord"></i> Fale no Discord</a>
+                        <a href="https://github.com/LucasDesignerF" target="_blank" class="btn-custom mt-2"><i class="fab fa-github"></i> GitHub do Dev</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Seção Encomendar -->
-        <section class="mb-5">
-            <h2 class="section-title">Encomende Seu Bot</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="card p-4 text-center">
-                        <p class="mb-4">Crie seu bot personalizado com a Code Projects em poucos passos:</p>
-                        <ol class="list-group list-group-numbered text-start mx-auto" style="max-width: 400px;">
-                            <li class="list-group-item bg-transparent border-0 text-white">Entre no <a href="https://discord.gg/codeprojects" target="_blank" style="color: #00ffcc;">Discord da Code Projects</a>.</li>
-                            <li class="list-group-item bg-transparent border-0 text-white">Abra um ticket com sua ideia.</li>
-                            <li class="list-group-item bg-transparent border-0 text-white">Receba orçamento e prazo.</li>
-                            <li class="list-group-item bg-transparent border-0 text-white">Tenha seu bot entregue!</li>
+        <section class="mb-12">
+            <h2 class="section-title">Encomende seu Bot Discord</h2>
+            <div class="content-grid max-w-2xl mx-auto">
+                <div class="card">
+                    <i class="fas fa-rocket card-icon"></i>
+                    <span class="card-number">01</span>
+                    <div class="card-content">
+                        <h3 class="text-xl font-semibold mb-2">Passos para Encomendar</h3>
+                        <p>Crie um bot personalizado no estilo Discord:</p>
+                        <ol class="list-decimal pl-5 mt-2">
+                            <li>Junte-se ao <a href="https://discord.gg/codeprojects" target="_blank" class="text-[#5865F2] hover:text-white">Discord da Code Projects</a>.</li>
+                            <li>Abra um ticket com seu projeto.</li>
+                            <li>Receba um orçamento detalhado.</li>
+                            <li>Tenha seu bot pronto para seu server!</li>
                         </ol>
-                        <button class="btn btn-custom mt-4"><i class="fas fa-rocket me-2"></i> Comece Agora</button>
+                        <button class="btn-custom mt-4"><i class="fas fa-rocket"></i> Encomendar Agora</button>
                     </div>
                 </div>
             </div>
         </section>
-    </main>
 
-    <footer class="w-100">
-        <p>Desenvolvido por <a href="https://github.com/LucasDesignerF" target="_blank">Lucas Fortes</a> | © Code Projects</p>
-        <p>Termos de Serviço: <a href="https://termos.redebots.shop/" target="_blank">Acesse aqui</a></p>
-    </footer>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <!-- GSAP Animações -->
-    <script>
-        gsap.from('header', { duration: 1, y: -100, opacity: 0, ease: 'power3.out' });
-        gsap.from('.card', { 
-            duration: 1, 
-            y: 50, 
-            opacity: 0, 
-            stagger: 0.2, 
-            ease: 'power3.out', 
-            delay: 0.5 
-        });
-        gsap.from('footer', { duration: 1, y: 50, opacity: 0, ease: 'power3.out', delay: 1.5 });
-    </script>
-    <!-- Font Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+        <div class="footer">
+            <i class="fas fa-code"></i> Desenvolvido por <a href="https://github.com/LucasDesignerF" target="_blank" class="text-[#5865F2] hover:text-white">Lucas Fortes</a> | © 2025 Code Projects | Termos: <a href="https://termos.redebots.shop/" target="_blank" class="text-[#5865F2] hover:text-white">Clique aqui</a>
+        </div>
+    </div>
 </body>
 </html>

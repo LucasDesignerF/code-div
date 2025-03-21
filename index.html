@@ -3,204 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robux Tool v1 - Code Projects</title>
+    <!-- SEO Meta Tags -->
+    <title>Robux Tool v1 - Automatize Suas Transferências de Robux | Code Projects</title>
+    <meta name="description" content="Descubra o Robux Tool v1, um bot Discord avançado da Code Projects para gerenciar transferências de Robux com dashboards incríveis. Encomende seu bot personalizado hoje!">
+    <meta name="keywords" content="Robux Tool v1, bot Discord, Code Projects, Robux barato, Capital dos Robux, desenvolvimento de bots, APIs, sites">
+    <meta name="author" content="Lucas Fortes - Code Projects">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Robux Tool v1 - Code Projects">
+    <meta property="og:description" content="Automatize transferências de Robux com o Robux Tool v1. Junte-se à Capital dos Robux ou encomende um bot personalizado com a Code Projects!">
+    <meta property="og:image" content="https://4kwallpapers.com/images/wallpapers/roblox-game-art-3840x2160-20147.jpg">
+    <meta property="og:url" content="https://ads.redebots.shop">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://ads.redebots.shop">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
         body {
-            background: url('https://4kwallpapers.com/images/wallpapers/roblox-game-art-3840x2160-20147.jpg') no-repeat center center fixed;
+            background: url('https://images.alphacoders.com/135/1354746.png') no-repeat center center fixed;
             background-size: cover;
+            font-family: 'Poppins', sans-serif;
             color: #fff;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 40px;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
-            color: #00ffcc;
+            overflow-x: hidden;
         }
 
         .card {
-            background: rgba(0, 0, 0, 0.85);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            overflow: hidden;
-            position: relative;
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #00ffcc;
+            transition: all 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 24px rgba(0, 255, 204, 0.3);
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.7);
         }
 
-        .card h2 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: #00ffcc;
-            text-shadow: 1px 1px 5px rgba(0, 255, 204, 0.5);
+        .btn {
+            transition: all 0.3s ease;
         }
 
-        .card p, .card ul {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #e0e0e0;
-        }
-
-        .card ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .card ul li {
-            margin: 10px 0;
-            display: flex;
-            align-items: center;
-        }
-
-        .card ul li::before {
-            content: "➡️";
-            margin-right: 10px;
-            color: #00ffcc;
-        }
-
-        .card img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            display: block;
-            border: 3px solid #00ffcc;
-        }
-
-        .card a {
-            color: #00ffcc;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        .card a:hover {
-            color: #ff00cc;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            margin: 40px 0 20px;
-            text-align: center;
-            color: #ff00cc;
-            text-shadow: 2px 2px 10px rgba(255, 0, 204, 0.5);
-        }
-
-        footer {
-            margin-top: 40px;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #b0b0b0;
-        }
-
-        footer a {
-            color: #00ffcc;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: #ff00cc;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            .card h2 {
-                font-size: 1.5rem;
-            }
-
-            .card p, .card ul {
-                font-size: 1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 255, 204, 0.5);
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Robux Tool v1</h1>
+<body class="min-h-screen flex flex-col items-center py-10">
+    <header class="text-center mb-12">
+        <h1 class="text-5xl md:text-6xl font-bold text-cyan-400 drop-shadow-lg animate__fadeIn">Robux Tool v1</h1>
+        <p class="text-lg md:text-xl text-gray-300 mt-2">Desenvolvido por <span class="text-cyan-400">Code Projects</span></p>
+    </header>
 
-        <div class="section-title">Como o Robux Tool v1 Funciona</div>
-        <div class="card">
-            <h2>O que é o Robux Tool v1?</h2>
-            <p>O <strong>Robux Tool v1</strong> é um bot avançado para Discord desenvolvido pela Code Projects. Ele permite que administradores gerenciem transferências de Robux de forma prática e segura, com uma interface moderna e personalizada.</p>
-            <ul>
-                <li>Gerencie fundos e entregas diretamente no Discord.</li>
-                <li>Integração com a API do Roblox para verificar usuários e avatars.</li>
-                <li>Geração de dashboards visuais com informações de transferência.</li>
-                <li>Comandos simples e intuitivos para administradores.</li>
-            </ul>
-        </div>
+    <main class="max-w-7xl w-full px-4">
+        <!-- Seção Como Funciona -->
+        <section class="mb-16">
+            <h2 class="text-3xl md:text-4xl font-semibold text-pink-500 text-center mb-8">Como o Robux Tool v1 Funciona</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card p-6 rounded-xl">
+                    <i class="fas fa-robot text-4xl text-cyan-400 mb-4"></i>
+                    <h3 class="text-2xl font-bold text-white mb-3">Automação de Robux</h3>
+                    <p class="text-gray-300">Gerencie transferências de Robux diretamente no Discord com comandos simples e dashboards visuais.</p>
+                    <button class="btn mt-4 bg-cyan-500 text-white px-4 py-2 rounded-full hover:bg-cyan-600"><i class="fas fa-info-circle mr-2"></i> Saiba Mais</button>
+                </div>
+                <div class="card p-6 rounded-xl">
+                    <i class="fas fa-user-check text-4xl text-cyan-400 mb-4"></i>
+                    <h3 class="text-2xl font-bold text-white mb-3">Integração Roblox</h3>
+                    <p class="text-gray-300">Conexão com a API do Roblox para verificar usuários e exibir avatars em tempo real.</p>
+                    <button class="btn mt-4 bg-cyan-500 text-white px-4 py-2 rounded-full hover:bg-cyan-600"><i class="fas fa-link mr-2"></i> Veja em Ação</button>
+                </div>
+                <div class="card p-6 rounded-xl">
+                    <i class="fas fa-tachometer-alt text-4xl text-cyan-400 mb-4"></i>
+                    <h3 class="text-2xl font-bold text-white mb-3">Dashboards Dinâmicos</h3>
+                    <p class="text-gray-300">Gere imagens personalizadas com informações de fundos e entregas em poucos cliques.</p>
+                    <button class="btn mt-4 bg-cyan-500 text-white px-4 py-2 rounded-full hover:bg-cyan-600"><i class="fas fa-eye mr-2"></i> Exemplos</button>
+                </div>
+            </div>
+        </section>
 
-        <div class="section-title">Divulgação e Encomendas</div>
-        <div class="card">
-            <img src="https://4kwallpapers.com/images/wallpapers/roblox-game-art-3840x2160-20147.jpg" alt="Avatar Capital dos Robux">
-            <h2>Capital dos Robux</h2>
-            <p>Junte-se à <strong>Capital dos Robux</strong>, o melhor lugar para comprar Robux a preços imbatíveis! Oferecemos valores incríveis e um método exclusivo de Robux Infinito.</p>
-            <ul>
-                <li>22,000 Robux por apenas R$ 14.99</li>
-                <li>50,000 Robux por apenas R$ 24.99</li>
-                <li>Método Robux Infinito por apenas R$ 49.99</li>
-            </ul>
-            <p>Entre agora no nosso Discord: <a href="https://discord.gg/pMANdMVakH" target="_blank">https://discord.gg/pMANdMVakH</a></p>
-        </div>
+        <!-- Seção Divulgação e Encomendas -->
+        <section class="mb-16">
+            <h2 class="text-3xl md:text-4xl font-semibold text-pink-500 text-center mb-8">Junte-se ou Encomende</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="card p-6 rounded-xl flex flex-col items-center">
+                    <img src="https://4kwallpapers.com/images/wallpapers/roblox-game-art-3840x2160-20147.jpg" alt="Capital dos Robux" class="w-24 h-24 rounded-full border-4 border-cyan-400 mb-4">
+                    <h3 class="text-2xl font-bold text-white mb-3">Capital dos Robux</h3>
+                    <p class="text-gray-300 text-center">Compre Robux a preços imbatíveis na Capital dos Robux:</p>
+                    <ul class="text-gray-300 mt-2">
+                        <li><i class="fas fa-plus mr-2 text-cyan-400"></i> 22,000 Robux por R$ 14.99</li>
+                        <li><i class="fas fa-plus mr-2 text-cyan-400"></i> 50,000 Robux por R$ 24.99</li>
+                        <li><i class="fas fa-plus mr-2 text-cyan-400"></i> Robux Infinito por R$ 49.99</li>
+                    </ul>
+                    <a href="https://discord.gg/pMANdMVakH" target="_blank" class="btn mt-4 bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600"><i class="fab fa-discord mr-2"></i> Entrar no Discord</a>
+                </div>
+                <div class="card p-6 rounded-xl flex flex-col items-center">
+                    <img src="https://imgur.com/luzpsj9.png" alt="Code Projects" class="w-24 h-24 rounded-full border-4 border-cyan-400 mb-4">
+                    <h3 class="text-2xl font-bold text-white mb-3">Code Projects</h3>
+                    <p class="text-gray-300 text-center">Desenvolvemos bots Discord, sites, APIs e plataformas com tecnologia de ponta.</p>
+                    <a href="https://discord.gg/codeprojects" target="_blank" class="btn mt-4 bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600"><i class="fab fa-discord mr-2"></i> Fale Conosco</a>
+                    <a href="https://github.com/LucasDesignerF" target="_blank" class="btn mt-2 bg-gray-700 text-white px-6 py-2 rounded-full hover:bg-gray-600"><i class="fab fa-github mr-2"></i> GitHub do Dev</a>
+                </div>
+            </div>
+        </section>
 
-        <div class="card">
-            <img src="https://imgur.com/luzpsj9.png" alt="Avatar Code Projects">
-            <h2>Code Projects</h2>
-            <p>A <strong>Code Projects</strong> é uma equipe especializada em desenvolvimento de soluções digitais. Criamos bots para Discord, sites, APIs, plataformas e muito mais, sempre com qualidade e inovação.</p>
-            <p>Quer um bot personalizado como o Robux Tool v1? Entre em contato no nosso Discord: <a href="https://discord.gg/codeprojects" target="_blank">https://discord.gg/codeprojects</a></p>
-        </div>
+        <!-- Seção Encomendar -->
+        <section class="mb-16">
+            <h2 class="text-3xl md:text-4xl font-semibold text-pink-500 text-center mb-8">Encomende Seu Bot</h2>
+            <div class="card p-6 rounded-xl mx-auto max-w-2xl">
+                <p class="text-gray-300 text-center mb-4">Siga os passos para ter seu bot personalizado com a Code Projects:</p>
+                <ol class="text-gray-300 list-decimal pl-6">
+                    <li class="mb-2">Entre no <a href="https://discord.gg/codeprojects" target="_blank" class="text-cyan-400 hover:text-pink-500">Discord da Code Projects</a>.</li>
+                    <li class="mb-2">Abra um ticket e detalhe sua ideia.</li>
+                    <li class="mb-2">Receba um orçamento e prazo personalizados.</li>
+                    <li>Tenha seu bot entregue pronto para arrasar!</li>
+                </ol>
+                <button class="btn mt-4 bg-cyan-500 text-white px-6 py-2 rounded-full hover:bg-cyan-600 mx-auto block"><i class="fas fa-rocket mr-2"></i> Comece Agora</button>
+            </div>
+        </section>
+    </main>
 
-        <div class="card">
-            <h2>Como Encomendar um Bot Personalizado</h2>
-            <p>Encomendar um bot com a Code Projects é simples:</p>
-            <ul>
-                <li>Entre no Discord da Code Projects e abra um ticket.</li>
-                <li>Explique sua ideia e necessidades específicas.</li>
-                <li>Receba um orçamento personalizado e prazo de entrega.</li>
-                <li>Aprove o projeto e receba seu bot pronto para uso!</li>
-            </ul>
-            <p>Veja meu GitHub: <a href="https://github.com/LucasDesignerF" target="_blank">Lucas Fortes</a></p>
-        </div>
+    <footer class="text-center text-gray-400 mt-12">
+        <p>Desenvolvido por <a href="https://github.com/LucasDesignerF" target="_blank" class="text-cyan-400 hover:text-pink-500">Lucas Fortes</a> | © Code Projects</p>
+        <p>Termos de Serviço: <a href="https://termos.redebots.shop/" target="_blank" class="text-cyan-400 hover:text-pink-500">Acesse aqui</a></p>
+    </footer>
 
-        <footer>
-            <p>Desenvolvido por <a href="https://github.com/LucasDesignerF" target="_blank">Lucas Fortes</a> | Direitos Reservados © Code Projects</p>
-            <p>Termos de Serviço: <a href="https://termos.redebots.shop/" target="_blank">https://termos.redebots.shop/</a></p>
-        </footer>
-    </div>
-
-    <!-- Importando a fonte Poppins do Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- GSAP Animações -->
+    <script>
+        gsap.from('header', { duration: 1, y: -100, opacity: 0, ease: 'power3.out' });
+        gsap.from('.card', { 
+            duration: 1, 
+            y: 50, 
+            opacity: 0, 
+            stagger: 0.2, 
+            ease: 'power3.out', 
+            delay: 0.5 
+        });
+        gsap.from('footer', { duration: 1, y: 50, opacity: 0, ease: 'power3.out', delay: 1.5 });
+    </script>
 </body>
 </html>

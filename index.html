@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robux Tool v1 - Code Projects</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: url('https://images.alphacoders.com/135/1354746.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+            color: #00ffcc;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 255, 204, 0.3);
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #00ffcc;
+            text-shadow: 1px 1px 5px rgba(0, 255, 204, 0.5);
+        }
+
+        .card p, .card ul {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card ul li {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .card ul li::before {
+            content: "➡️";
+            margin-right: 10px;
+            color: #00ffcc;
+        }
+
+        .card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: block;
+            border: 3px solid #00ffcc;
+        }
+
+        .card a {
+            color: #00ffcc;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .card a:hover {
+            color: #ff00cc;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin: 40px 0 20px;
+            text-align: center;
+            color: #ff00cc;
+            text-shadow: 2px 2px 10px rgba(255, 0, 204, 0.5);
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #b0b0b0;
+        }
+
+        footer a {
+            color: #00ffcc;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #ff00cc;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .card h2 {
+                font-size: 1.5rem;
+            }
+
+            .card p, .card ul {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Robux Tool v1</h1>
+
+        <div class="section-title">Como o Robux Tool v1 Funciona</div>
+        <div class="card">
+            <h2>O que é o Robux Tool v1?</h2>
+            <p>O <strong>Robux Tool v1</strong> é um bot avançado para Discord desenvolvido pela Code Projects. Ele permite que administradores gerenciem transferências de Robux de forma prática e segura, com uma interface moderna e personalizada.</p>
+            <ul>
+                <li>Gerencie fundos e entregas diretamente no Discord.</li>
+                <li>Integração com a API do Roblox para verificar usuários e avatars.</li>
+                <li>Geração de dashboards visuais com informações de transferência.</li>
+                <li>Comandos simples e intuitivos para administradores.</li>
+            </ul>
+        </div>
+
+        <div class="section-title">Divulgação e Encomendas</div>
+        <div class="card">
+            <img src="https://4kwallpapers.com/images/wallpapers/roblox-game-art-3840x2160-20147.jpg" alt="Avatar Capital dos Robux">
+            <h2>Capital dos Robux</h2>
+            <p>Junte-se à <strong>Capital dos Robux</strong>, o melhor lugar para comprar Robux a preços imbatíveis! Oferecemos valores incríveis e um método exclusivo de Robux Infinito.</p>
+            <ul>
+                <li>22,000 Robux por apenas R$ 14.99</li>
+                <li>50,000 Robux por apenas R$ 24.99</li>
+                <li>Método Robux Infinito por apenas R$ 49.99</li>
+            </ul>
+            <p>Entre agora no nosso Discord: <a href="https://discord.gg/pMANdMVakH" target="_blank">https://discord.gg/pMANdMVakH</a></p>
+        </div>
+
+        <div class="card">
+            <img src="https://imgur.com/luzpsj9.png" alt="Avatar Code Projects">
+            <h2>Code Projects</h2>
+            <p>A <strong>Code Projects</strong> é uma equipe especializada em desenvolvimento de soluções digitais. Criamos bots para Discord, sites, APIs, plataformas e muito mais, sempre com qualidade e inovação.</p>
+            <p>Quer um bot personalizado como o Robux Tool v1? Entre em contato no nosso Discord: <a href="https://discord.gg/codeprojects" target="_blank">https://discord.gg/codeprojects</a></p>
+        </div>
+
+        <div class="card">
+            <h2>Como Encomendar um Bot Personalizado</h2>
+            <p>Encomendar um bot com a Code Projects é simples:</p>
+            <ul>
+                <li>Entre no Discord da Code Projects e abra um ticket.</li>
+                <li>Explique sua ideia e necessidades específicas.</li>
+                <li>Receba um orçamento personalizado e prazo de entrega.</li>
+                <li>Aprove o projeto e receba seu bot pronto para uso!</li>
+            </ul>
+            <p>Veja meu GitHub: <a href="https://github.com/LucasDesignerF" target="_blank">Lucas Fortes</a></p>
+        </div>
+
+        <footer>
+            <p>Desenvolvido por <a href="https://github.com/LucasDesignerF" target="_blank">Lucas Fortes</a> | Direitos Reservados © Code Projects</p>
+            <p>Termos de Serviço: <a href="https://termos.redebots.shop/" target="_blank">https://termos.redebots.shop/</a></p>
+        </footer>
+    </div>
+
+    <!-- Importando a fonte Poppins do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</body>
+</html>

@@ -83,6 +83,9 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .card:hover {
@@ -111,6 +114,12 @@
         .card-content {
             margin-top: 35px;
             font-size: 1em;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
         }
 
         .card img {
@@ -135,6 +144,9 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            width: 100%; /* Botões ocupam largura total */
+            justify-content: center; /* Centraliza conteúdo dos botões */
+            margin-top: 10px; /* Espaço entre botões */
         }
 
         .btn-custom:hover {
@@ -200,7 +212,6 @@
                     <div class="card-content">
                         <h3 class="text-xl font-semibold mb-2">Automação no Discord</h3>
                         <p>Gerencie transferências de Robux com slash commands diretamente no seu servidor Discord.</p>
-                        <button class="btn-custom mt-4"><i class="fas fa-info-circle"></i> Saiba Mais</button>
                     </div>
                 </div>
                 <div class="card">
@@ -209,7 +220,6 @@
                     <div class="card-content">
                         <h3 class="text-xl font-semibold mb-2">Integração Roblox</h3>
                         <p>Conecte-se à API do Roblox para verificar usuários e exibir avatars em embeds.</p>
-                        <button class="btn-custom mt-4"><i class="fas fa-link"></i> Veja em Ação</button>
                     </div>
                 </div>
                 <div class="card">
@@ -218,7 +228,6 @@
                     <div class="card-content">
                         <h3 class="text-xl font-semibold mb-2">Embeds Dinâmicos</h3>
                         <p>Gere dashboards visuais com informações de fundos e entregas no estilo Discord.</p>
-                        <button class="btn-custom mt-4"><i class="fas fa-eye"></i> Exemplos</button>
                     </div>
                 </div>
             </div>
@@ -235,12 +244,12 @@
                         <img src="https://media.discordapp.net/attachments/1348020005027184857/1352731233687441550/a_80b5d23f2769d22281121646c126ebbb.gif?ex=67df14a2&is=67ddc322&hm=65fd04d8d4182b84b8b50dde99cc99f4a74f2f97e2caf0633d297117d3d118a3&=" alt="Capital dos Robux">
                         <h3 class="text-xl font-semibold mb-2">Capital dos Robux</h3>
                         <p>Os melhores preços de Robux no Discord:</p>
-                        <ul class="list-disc pl-5 mt-2">
-                            <li>22,000 Robux por R$ 14.99</li>
-                            <li>50,000 Robux por R$ 24.99</li>
-                            <li>Robux Infinito por R$ 49.99</li>
+                        <ul class="mt-2">
+                            <li><i class="fas fa-coins mr-2 text-[#5865F2]"></i> 22,000 Robux por R$ 14.99</li>
+                            <li><i class="fas fa-coins mr-2 text-[#5865F2]"></i> 50,000 Robux por R$ 24.99</li>
+                            <li><i class="fas fa-coins mr-2 text-[#5865F2]"></i> Robux Infinito por R$ 49.99</li>
                         </ul>
-                        <a href="https://discord.gg/pMANdMVakH" target="_blank" class="btn-custom mt-4"><i class="fab fa-discord"></i> Entrar no Server</a>
+                        <a href="https://discord.gg/pMANdMVakH" target="_blank" class="btn-custom"><i class="fab fa-discord"></i> Entrar no Server</a>
                     </div>
                 </div>
                 <div class="card">
@@ -250,8 +259,8 @@
                         <img src="https://imgur.com/luzpsj9.png" alt="Code Projects">
                         <h3 class="text-xl font-semibold mb-2">Code Projects</h3>
                         <p>Bots Discord, sites e APIs feitos sob medida para seu servidor.</p>
-                        <a href="https://discord.gg/codeprojects" target="_blank" class="btn-custom mt-4"><i class="fab fa-discord"></i> Fale no Discord</a>
-                        <a href="https://github.com/LucasDesignerF" target="_blank" class="btn-custom mt-2"><i class="fab fa-github"></i> GitHub do Dev</a>
+                        <a href="https://discord.gg/codeprojects" target="_blank" class="btn-custom"><i class="fab fa-discord"></i> Fale no Discord</a>
+                        <a href="https://github.com/LucasDesignerF" target="_blank" class="btn-custom"><i class="fab fa-github"></i> GitHub do Dev</a>
                     </div>
                 </div>
             </div>
@@ -273,7 +282,7 @@
                             <li>Receba um orçamento detalhado.</li>
                             <li>Tenha seu bot pronto para seu server!</li>
                         </ol>
-                        <button class="btn-custom mt-4"><i class="fas fa-rocket"></i> Encomendar Agora</button>
+                        <button class="btn-custom"><i class="fas fa-rocket"></i> Encomendar Agora</button>
                     </div>
                 </div>
             </div>
